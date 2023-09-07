@@ -11,18 +11,20 @@ jobs:
     container:
       # without tmpfs: 9m 36s (total: 14m 47s)
       image: lmmsci/linux.gcc:18.04
-      options: --tmpfs /tmp --tmpfs /github/home/.ccache
+      options: --tmpfs /tmp --tmpfs /github/home/.ccache --cpus 2
     env:
       CMAKE_OPTS: >-
         -DUSE_WERROR=ON
         -DCMAKE_BUILD_TYPE=RelWithDebInfo
         -DUSE_COMPILE_CACHE=ON
       CCACHE_MAXSIZE: 500M
-      MAKEFLAGS: -j2
+      MAKEFLAGS: -j3
       BUILD: /tmp/build
     steps:
       - name: Update and configure Git
         run: |
+          echo "User: $(whoami)"
+          df -h
           add-apt-repository ppa:git-core/ppa
           apt-get update
           apt-get --yes install git

@@ -61,8 +61,6 @@ jobs:
           ls -al $BUILD/tests $BUILD/tests/tests
           chmod -Rc 777 $BUILD/tests
           chmod -Rc 777 $BUILD/tests/tests
-          chmod -Rc 777 $BUILD/tests/tests/
-          chmod -Rc 777 $BUILD/tests/tests/*
           ls -al $BUILD/tests
           ls -al $BUILD/tests/tests
           $BUILD/tests/tests

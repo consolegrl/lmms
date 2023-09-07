@@ -25,6 +25,8 @@ jobs:
         run: |
           echo "User: $(whoami)"
           echo "Umask: $(umask) $(umask -S)"
+          ls -al /__w/_temp/
+          chmod -Rc 777 /tmp
           df -h
           add-apt-repository ppa:git-core/ppa
           apt-get update
@@ -46,7 +48,7 @@ jobs:
       - name: Configure
         run: |
           source /opt/qt5*/bin/qt5*-env.sh || true
-          umask 022
+          umask 000
           mkdir $BUILD
           ls -al /tmp $BUILD
           cd $BUILD

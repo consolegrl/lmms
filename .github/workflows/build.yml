@@ -24,6 +24,7 @@ jobs:
       - name: Update and configure Git
         run: |
           echo "User: $(whoami)"
+          echo "Umask: $(umask) $(umask -S)"
           df -h
           add-apt-repository ppa:git-core/ppa
           apt-get update
@@ -45,9 +46,9 @@ jobs:
       - name: Configure
         run: |
           source /opt/qt5*/bin/qt5*-env.sh || true
+          umask 022
           mkdir $BUILD
           ls -al /tmp $BUILD
-          chmod 777 $BUILD
           cd $BUILD
           cmake "$GITHUB_WORKSPACE" $CMAKE_OPTS \
             -DCMAKE_INSTALL_PREFIX="$GITHUB_WORKSPACE/install"
@@ -56,7 +57,9 @@ jobs:
       - name: Build tests
         run: cmake --build $BUILD --target tests
       - name: Run tests
-        run: $BUILD/tests/tests
+        run: |
+          chmod +x $BUILD/tests/tests
+          $BUILD/tests/tests
       - name: Package
         run: |
           cmake --build $BUILD --target install

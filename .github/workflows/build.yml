@@ -46,7 +46,7 @@ jobs:
           mkdir $BUILD
           ls -al /tmp $BUILD
           chmod 777 $BUILD
-          pushd $BUILD
+          cd $BUILD
           cmake "$GITHUB_WORKSPACE" $CMAKE_OPTS \
             -DCMAKE_INSTALL_PREFIX="$GITHUB_WORKSPACE/install"
       - name: Build

@@ -58,7 +58,8 @@ jobs:
         run: cmake --build $BUILD --target tests
       - name: Run tests
         run: |
-          chmod +x $BUILD/tests/tests
+          ls -al $BUILD/tests $BUILD/tests/tests
+          chmod -R 777 $BUILD/tests/tests
           $BUILD/tests/tests
       - name: Package
         run: |

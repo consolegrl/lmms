@@ -1704,7 +1704,7 @@ void DataFile::upgrade_mixerRename()
 {
 	// Change nodename <fxmixer> to <mixer>
 	QDomNodeList fxmixer = elementsByTagName("fxmixer");
-	for (int i = 0; fxmixer.length(); ++i)
+	for (int i = 0; i < fxmixer.length(); ++i)
 	{
 		auto item = fxmixer.item(i).toElement();
 		if (item.isNull())
@@ -1716,7 +1716,7 @@ void DataFile::upgrade_mixerRename()
 
 	// Change nodename <fxchannel> to <mixerchannel>
 	QDomNodeList fxchannel = elementsByTagName("fxchannel");
-	for (int i = 0; fxchannel.length(); ++i)
+	for (int i = 0; i < fxchannel.length(); ++i)
 	{
 		auto item = fxchannel.item(i).toElement();
 		if (item.isNull())
@@ -1728,7 +1728,7 @@ void DataFile::upgrade_mixerRename()
 
 	// Change the attribute fxch of element <instrumenttrack> to mixch
 	QDomNodeList fxch = elementsByTagName("instrumenttrack");
-	for(int i = 0; fxch.length(); ++i)
+	for(int i = 0; i < fxch.length(); ++i)
 	{
 		auto item = fxch.item(i).toElement();
 		if (item.isNull())
@@ -1743,7 +1743,7 @@ void DataFile::upgrade_mixerRename()
 	}
 	// Change the attribute fxch of element <sampletrack> to mixch
 	fxch = elementsByTagName("sampletrack");
-	for (int i = 0; fxch.length(); ++i)
+	for (int i = 0; i < fxch.length(); ++i)
 	{
 		auto item = fxch.item(i).toElement();
 		if (item.isNull())

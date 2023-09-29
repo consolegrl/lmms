@@ -113,8 +113,6 @@ class WaveForm : public QWidget {
         QPixmap m_seekerWaveform; // only stores waveform graphic
         QPixmap m_sliceEditor;
 
-        SampleBuffer & m_currentSample;
-
         void drawEditor();
         void drawSeekerWaveform();
         void drawSeeker();
@@ -127,6 +125,11 @@ class WaveForm : public QWidget {
 
     private:
         SlicerT * m_slicerTParent;
+ 
+    public:
+        SampleBuffer & m_currentSample;
+ 
+     private:
         std::vector<int> & m_slicePoints;
 };
 } // namespace gui

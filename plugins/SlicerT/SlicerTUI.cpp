@@ -56,7 +56,7 @@ SlicerTUI::SlicerTUI( SlicerT * instrument,
 	m_bpmBox(3, "21pink", this),
 	m_resetButton(this, nullptr),
 	m_midiExportButton(this, nullptr),
-	m_wf(248, 128, instrument, this)
+	m_wf(248, 128, this, instrument)
 {
 	setAcceptDrops( true );
 	setAutoFillBackground( true );

@@ -33,7 +33,7 @@ namespace lmms
 
 namespace gui
 {
-WaveForm::WaveForm(int w, int h, SlicerT  * instrument, QWidget * parent) :
+WaveForm::WaveForm(int w, int h, QWidget * parent, SlicerT  * instrument) :
     QWidget(parent),
     // calculate sizes
     m_width(w),

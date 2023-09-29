@@ -123,7 +123,7 @@ class WaveForm : public QWidget {
         void isPlaying(float current, float start, float end);
 
     public:
-        WaveForm(int w, int h, SlicerT * instrument, QWidget * parent);
+        WaveForm(int w, int h, QWidget * parent, SlicerT * instrument);
 
     private:
         SlicerT * m_slicerTParent;
